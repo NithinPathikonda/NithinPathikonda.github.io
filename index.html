@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nithin Pathikonda | Software Developer & Distributed Systems Engineer</title>
+  <meta name="description" content="Portfolio of Nithin Pathikonda - SDE 1 at Hewlett Packard Enterprise specializing in high-throughput microservices, distributed systems, and enterprise Agentic AI platforms.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-bracket">&lt;</span><span class="logo-text">Nithin</span><span class="logo-slash"> /</span><span class="logo-bracket">&gt;</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link"><i class="fa-solid fa-user-astronaut"></i> About</a>
+        <a href="#skills" class="nav-link"><i class="fa-solid fa-code"></i> Skills</a>
+        <a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase"></i> Experience</a>
+        <a href="#projects" class="nav-link"><i class="fa-solid fa-laptop-code"></i> Projects</a>
+        <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+        <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+
+        <a href="https://github.com/NithinPathikonda" target="_blank" rel="noopener" class="btn btn-outline btn-sm nav-cta">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Open to High-Impact Opportunities</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi all, I'm <br>
+          <span class="gradient-text">Nithin Pathikonda</span> <span class="wave-emoji">👋</span>
+        </h1>
+
+        <h2 class="hero-role">
+          <span id="typedText">Software Developer (SDE 1)</span>
+          <span class="typing-cursor">|</span>
+        </h2>
+
+        <p class="hero-bio">
+          Software Developer at <strong>Hewlett Packard Enterprise (HPE)</strong> specializing in 
+          high-throughput microservices, distributed systems, and enterprise Agentic AI platforms. 
+          Experienced in building scalable backend services in <strong>Go (Gin)</strong> and <strong>Python (FastAPI)</strong>, 
+          container orchestration with <strong>Kubernetes & Docker</strong>, and integrating 
+          <strong>Model Context Protocol (MCP)</strong> multi-agent architectures.
+        </p>
+
+        <!-- Social Media Icons -->
+        <div class="hero-socials">
+          <a href="https://github.com/NithinPathikonda" target="_blank" rel="noopener" class="social-icon" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/nithin-pathikonda" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:nithinpathikonda360@gmail.com" class="social-icon" title="Email Nithin">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+
+        <!-- Call to Actions -->
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> Contact Me
+          </a>
+          <a href="#projects" class="btn btn-secondary">
+            <i class="fa-solid fa-diagram-project"></i> View Projects
+          </a>
+          <a href="mailto:nithinpathikonda360@gmail.com?subject=Resume%20Request%20-%20Nithin%20Pathikonda" class="btn btn-outline">
+            <i class="fa-solid fa-file-arrow-down"></i> Request Resume
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Interactive Code Card -->
+      <div class="hero-visual">
+        <div class="code-window">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="window-title">nithin_profile.go</div>
+            <div class="window-badge">Go 1.23 • High Concurrency</div>
+          </div>
+          <div class="window-body">
+            <pre><code><span class="c-keyword">package</span> main
+
+<span class="c-keyword">type</span> <span class="c-type">Engineer</span> <span class="c-keyword">struct</span> {
+    Name       <span class="c-type">string</span>
+    CurrentOrg <span class="c-type">string</span>
+    FocusArea  []<span class="c-type">string</span>
+    Superpower <span class="c-type">string</span>
+}
+
+<span class="c-keyword">func</span> <span class="c-func">GetProfile</span>() <span class="c-type">Engineer</span> {
+    <span class="c-keyword">return</span> <span class="c-type">Engineer</span>{
+        Name:       <span class="c-string">"Nithin Pathikonda"</span>,
+        CurrentOrg: <span class="c-string">"Hewlett Packard Enterprise"</span>,
+        FocusArea: []<span class="c-type">string</span>{
+            <span class="c-string">"High-Throughput Go Microservices"</span>,
+            <span class="c-string">"Enterprise Agentic AI &amp; MCP"</span>,
+            <span class="c-string">"Kubernetes &amp; Cloud Reliability"</span>,
+        },
+        Superpower: <span class="c-string">"100K+ daily executions &lt;50ms"</span>,
+    }
+}</code></pre>
+          </div>
+          <div class="window-footer">
+            <span class="status-indicator"></span>
+            <span>Production Engine Status: 99.9% Uptime</span>
+          </div>
+        </div>
+
+        <!-- Floating Badges -->
+        <div class="floating-badge badge-top">
+          <i class="fa-solid fa-bolt text-yellow"></i>
+          <div>
+            <strong>Sub-50ms Latency</strong>
+            <span>High-Throughput APIs</span>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-bottom">
+          <i class="fa-solid fa-brain text-purple"></i>
+          <div>
+            <strong>Model Context Protocol</strong>
+            <span>Autonomous Multi-Agent Routing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Highlights Strip (Inspired by top design portfolios) -->
+  <section class="metrics-ribbon">
+    <div class="container metrics-grid">
+      <div class="metric-card">
+        <div class="metric-number" data-target="100000">100K+</div>
+        <div class="metric-label">Daily Workflow Executions</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">&lt; 50ms</div>
+        <div class="metric-label">Microservice Response Latency</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number" data-target="99.2">99.2%</div>
+        <div class="metric-label">Agent Task Completion Rate</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-number">99.9%</div>
+        <div class="metric-label">Platform Service Availability</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I Do / Domains Section (developerFolio style) -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-cubes"></i> Expertise</span>
+        <h2 class="section-title">What I Do</h2>
+        <p class="section-subtitle">
+          Building resilient distributed backends, scalable cloud platforms, and cutting-edge Agentic AI integrations.
+        </p>
+      </div>
+
+      <div class="domains-grid">
+        <!-- Domain 1 -->
+        <div class="domain-card">
+          <div class="domain-icon-box icon-blue">
+            <i class="fa-solid fa-server"></i>
+          </div>
+          <h3 class="domain-title">High-Throughput Microservices &amp; Distributed Systems</h3>
+          <p class="domain-desc">
+            Architecting robust, low-latency API layers and distributed data backends capable of scaling under enterprise workloads.
+          </p>
+          <ul class="domain-bullets">
+            <li><i class="fa-solid fa-check-circle"></i> Migrated monolithic systems to high-performance Go (Gin) &amp; FastAPI microservices across 20+ REST APIs.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Designed distributed caching patterns with Redis and API Gateways with strict RBAC enforcement.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Slashed API response times by 40% and tripled horizontal scaling capacity.</li>
+          </ul>
+          <div class="domain-tags">
+            <span>Go (Golang)</span>
+            <span>Gin</span>
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>Redis</span>
+            <span>REST APIs</span>
+            <span>RBAC</span>
+          </div>
+        </div>
+
+        <!-- Domain 2 -->
+        <div class="domain-card">
+          <div class="domain-icon-box icon-purple">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h3 class="domain-title">Agentic AI &amp; Model Context Protocol (MCP)</h3>
+          <p class="domain-desc">
+            Pioneering autonomous multi-agent orchestration, tool-calling safety, and secure enterprise data bridges for LLMs.
+          </p>
+          <ul class="domain-bullets">
+            <li><i class="fa-solid fa-check-circle"></i> Engineered Model Context Protocol (MCP) servers exposing enterprise stores (Trino, AWS RDS) to LLMs.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Architected LangGraph multi-agent routing with automated DAG health monitoring achieving 99.2% reliability.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Built automated Agentic Evaluation (Eval) frameworks benchmarking tool-calling determinism and accuracy.</li>
+          </ul>
+          <div class="domain-tags">
+            <span>Model Context Protocol (MCP)</span>
+            <span>LangGraph</span>
+            <span>LangChain</span>
+            <span>FastMCP</span>
+            <span>Agentic Evals</span>
+            <span>Copilot Studio</span>
+          </div>
+        </div>
+
+        <!-- Domain 3 -->
+        <div class="domain-card">
+          <div class="domain-icon-box icon-green">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <h3 class="domain-title">Cloud Native, DevOps &amp; Production Reliability</h3>
+          <p class="domain-desc">
+            Orchestrating containerized environments, background automation pipelines, and CI/CD workflows for 99.9% uptime.
+          </p>
+          <ul class="domain-bullets">
+            <li><i class="fa-solid fa-check-circle"></i> Designed and deployed 10+ Kubernetes CronJobs and automated background health monitoring services.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Eliminated 15+ hours/week of operational toil through automated self-healing and alerting.</li>
+            <li><i class="fa-solid fa-check-circle"></i> Streamlined CI/CD pipelines with Jenkins and Docker, eliminating manual release bottlenecks.</li>
+          </ul>
+          <div class="domain-tags">
+            <span>Kubernetes (K8s)</span>
+            <span>Docker</span>
+            <span>AWS (RDS, S3)</span>
+            <span>CI/CD</span>
+            <span>Jenkins</span>
+            <span>Linux Shell</span>
+            <span>CronJobs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Categorized Chips -->
+      <div class="skills-catalog">
+        <h3 class="skills-catalog-title"><i class="fa-solid fa-layer-group"></i> Technical Skills Directory</h3>
+        
+        <div class="skills-categories-grid">
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-code"></i> Languages</h4>
+            <div class="chips-container">
+              <span class="chip">Python</span>
+              <span class="chip chip-featured">Go (Golang)</span>
+              <span class="chip">C++</span>
+              <span class="chip">Java</span>
+              <span class="chip">SQL</span>
+              <span class="chip">Shell / Bash</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-server"></i> Backend &amp; Architecture</h4>
+            <div class="chips-container">
+              <span class="chip chip-featured">FastAPI</span>
+              <span class="chip chip-featured">Go (Gin)</span>
+              <span class="chip">Django</span>
+              <span class="chip">Microservices</span>
+              <span class="chip">RESTful APIs</span>
+              <span class="chip">Redis</span>
+              <span class="chip">API Gateways</span>
+              <span class="chip">RBAC Enforcement</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-brain"></i> AI &amp; Agentic Systems</h4>
+            <div class="chips-container">
+              <span class="chip chip-featured">Model Context Protocol (MCP)</span>
+              <span class="chip">LangGraph</span>
+              <span class="chip">LangChain</span>
+              <span class="chip">Multi-Agent Orchestration</span>
+              <span class="chip">Agentic Evals</span>
+              <span class="chip">Pydantic Schema Guardrails</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-cloud"></i> Cloud, Containers &amp; OS</h4>
+            <div class="chips-container">
+              <span class="chip chip-featured">Kubernetes (K8s)</span>
+              <span class="chip">Docker</span>
+              <span class="chip">Kubernetes CronJobs</span>
+              <span class="chip">AWS (RDS, S3)</span>
+              <span class="chip">CI/CD &amp; Jenkins</span>
+              <span class="chip">Linux / POSIX</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-database"></i> Databases &amp; Big Data</h4>
+            <div class="chips-container">
+              <span class="chip">PostgreSQL</span>
+              <span class="chip chip-featured">Dgraph (Graph DB)</span>
+              <span class="chip">Trino</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">AWS RDS</span>
+              <span class="chip">SQLite</span>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h4><i class="fa-solid fa-chart-line"></i> Testing &amp; MLOps</h4>
+            <div class="chips-container">
+              <span class="chip">Pytest</span>
+              <span class="chip">XGBoost</span>
+              <span class="chip">Scikit-Learn</span>
+              <span class="chip">Hierarchical Classification</span>
+              <span class="chip">Data Drift Detection</span>
+              <span class="chip">Automated Retraining DAGs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Experience Section -->
+  <section class="section section-alt" id="experience">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-timeline"></i> Career Journey</span>
+        <h2 class="section-title">Work Experience</h2>
+        <p class="section-subtitle">
+          Proven track record of building production systems and driving enterprise engineering impact.
+        </p>
+      </div>
+
+      <div class="experience-timeline">
+        <!-- Role 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Software Developer (SDE 1)</h3>
+                <div class="company-name">
+                  <span class="badge-company"><i class="fa-solid fa-building"></i> Hewlett Packard Enterprise (HPE)</span>
+                  <span class="location"><i class="fa-solid fa-location-dot"></i> Bangalore, India</span>
+                </div>
+              </div>
+              <div class="role-duration">
+                <span class="badge-time">Oct. 2024 – Present</span>
+              </div>
+            </div>
+
+            <div class="timeline-body">
+              <ul class="experience-points">
+                <li>
+                  Architected and migrated monolithic backend services to high-performance <strong>FastAPI &amp; Go (Gin) microservices</strong> across <strong>20+ REST APIs</strong>, processing <strong>100K+ daily workflow executions</strong> with <strong>sub-50ms latency</strong>, slashing API response times by <strong>40%</strong> and expanding horizontal scaling capacity by <strong>3x</strong>.
+                </li>
+                <li>
+                  Engineered core backend microservices and interactive terminal execution (<strong>Go, Shell, Python</strong>) for an internal cloud developer platform adopted by <strong>300+ engineers</strong>, executing <strong>5,000+ weekly workflows</strong> and accelerating execution velocity by <strong>35%</strong>.
+                </li>
+                <li>
+                  Architected custom <strong>Model Context Protocol (MCP)</strong> tools and servers, securely exposing enterprise data stores (<strong>Trino, AWS RDS</strong>) to autonomous LLMs with automated DAG health monitoring and <strong>LangGraph multi-agent routing</strong> achieving <strong>99.2% task completion reliability</strong>.
+                </li>
+                <li>
+                  Owned end-to-end data ingestion and synchronization pipelines for <strong>Dgraph (Graph DB)</strong>, constructing an enterprise unified knowledge graph for sub-second search across distributed cloud datasets.
+                </li>
+                <li>
+                  Engineered an automated hierarchical ML classification system (<strong>XGBoost</strong>, 30+ classes across <strong>500K+ records</strong>) for cloud service ITSM tickets, deploying automated retraining DAGs and data drift detection to eliminate manual triage overhead.
+                </li>
+                <li>
+                  Designed and deployed <strong>10+ Kubernetes CronJobs</strong> and automated background health monitoring services, eliminating <strong>15+ hours/week</strong> of operational toil while maintaining <strong>99.9% platform availability</strong>.
+                </li>
+              </ul>
+            </div>
+
+            <div class="timeline-tech">
+              <span class="tag">Go (Gin)</span>
+              <span class="tag">Python (FastAPI)</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Model Context Protocol</span>
+              <span class="tag">LangGraph</span>
+              <span class="tag">Dgraph</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div>
+                <h3 class="role-title">Software Engineering Intern – Automation &amp; AI Systems</h3>
+                <div class="company-name">
+                  <span class="badge-company"><i class="fa-solid fa-building"></i> Hewlett Packard Enterprise (HPE)</span>
+                  <span class="location"><i class="fa-solid fa-location-dot"></i> Bangalore, India</span>
+                </div>
+              </div>
+              <div class="role-duration">
+                <span class="badge-time">Feb 2024 – Sept 2024</span>
+              </div>
+            </div>
+
+            <div class="timeline-body">
+              <ul class="experience-points">
+                <li>
+                  Architected and built an automated <strong>Evaluation (Eval) framework for Agentic AI workflows</strong>, benchmarking multi-agent tool-calling accuracy, output determinism, and execution reliability across enterprise tasks.
+                </li>
+                <li>
+                  Authored comprehensive test automation suites using <strong>Pytest</strong>, establishing <strong>75+ automated test cases</strong> validating <strong>40+ backend APIs</strong> and expanding test coverage across internal platforms by <strong>50%</strong>.
+                </li>
+                <li>
+                  Integrated automated regression and evaluation pipelines into <strong>CI/CD workflows</strong>, eliminating manual release bottlenecks and accelerating deployment cycles.
+                </li>
+              </ul>
+            </div>
+
+            <div class="timeline-tech">
+              <span class="tag">Python</span>
+              <span class="tag">Pytest</span>
+              <span class="tag">Agentic Evals</span>
+              <span class="tag">CI/CD Pipelines</span>
+              <span class="tag">Jenkins</span>
+              <span class="tag">Test Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section (Tom Scott Case Study Style) -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-rocket"></i> Portfolio Showcase</span>
+        <h2 class="section-title">Featured Projects &amp; Systems</h2>
+        <p class="section-subtitle">
+          Engineered for production scale, zero-trust safety, and real-world developer productivity.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="project-image-banner banner-1">
+            <div class="project-category-badge">Agentic AI &amp; Developer Tools</div>
+            <div class="project-icon-large"><i class="fa-solid fa-file-waveform"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">Pro_resume – AI Resume Tailoring Studio &amp; ATS Engine</h3>
+              <div class="project-links">
+                <a href="https://github.com/NithinPathikonda/Pro_resume" target="_blank" rel="noopener" class="icon-link" title="Source Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">
+              Intelligent career tailoring platform parsing complex job descriptions from URLs/text and dynamically optimizing resume keyword alignment to maximize ATS match scores. Built with a modular Jinja2 templating engine producing pixel-perfect single-page A4/Letter PDF exports with real-time preview.
+            </p>
+            <div class="project-highlights">
+              <div><i class="fa-solid fa-check text-green"></i> <strong>Dual Engines:</strong> Google Gemini API + Rule-based Offline Fallback</div>
+              <div><i class="fa-solid fa-check text-green"></i> <strong>Real-time Preview:</strong> Instant WYSIWYG render and ATS auditing</div>
+            </div>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>FastAPI</span>
+              <span>Google Gemini API</span>
+              <span>Jinja2</span>
+              <span>Uvicorn</span>
+              <span>REST APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="project-image-banner banner-2">
+            <div class="project-category-badge">Open Source Protocol &amp; Security</div>
+            <div class="project-icon-large"><i class="fa-solid fa-shield-halved"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">MCP Data Bridge – Enterprise Agent Database Gateway</h3>
+              <div class="project-links">
+                <a href="https://github.com/NithinPathikonda/mcp-data-bridge" target="_blank" rel="noopener" class="icon-link" title="Source Code">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">
+              Open-source Model Context Protocol (MCP) server enabling autonomous LLM agents to safely inspect database schemas and execute validated SQL queries via STDIO and SSE transports. Implements strict Pydantic runtime schema validation, read-only safety guardrails, and query execution logging to prevent prompt injection.
+            </p>
+            <div class="project-highlights">
+              <div><i class="fa-solid fa-check text-green"></i> <strong>Zero-Trust Guardrails:</strong> AST validation against mutations &amp; injections</div>
+              <div><i class="fa-solid fa-check text-green"></i> <strong>Dual Transports:</strong> Production-ready STDIO and Server-Sent Events (SSE)</div>
+            </div>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>FastMCP</span>
+              <span>Model Context Protocol</span>
+              <span>SQLite</span>
+              <span>Pydantic</span>
+              <span>Asyncio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="project-image-banner banner-3">
+            <div class="project-category-badge">Big Data &amp; Knowledge Graph</div>
+            <div class="project-icon-large"><i class="fa-solid fa-network-wired"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">Enterprise Unified Knowledge Graph (Dgraph Engine)</h3>
+              <div class="project-links">
+                <span class="badge-internal"><i class="fa-solid fa-lock"></i> Enterprise HPE Core</span>
+              </div>
+            </div>
+            <p class="project-description">
+              End-to-end data ingestion and synchronization pipeline architected for Dgraph (Graph DB), unifying distributed cloud datasets across Trino and AWS RDS into an enterprise knowledge graph enabling sub-second multi-hop search for autonomous engineering workflows.
+            </p>
+            <div class="project-highlights">
+              <div><i class="fa-solid fa-check text-green"></i> <strong>Sub-Second Search:</strong> Multi-hop relationship traversals across cloud assets</div>
+              <div><i class="fa-solid fa-check text-green"></i> <strong>Automated Sync:</strong> Streaming ingestion DAGs with real-time data integrity</div>
+            </div>
+            <div class="project-tags">
+              <span>Go (Golang)</span>
+              <span>Dgraph</span>
+              <span>Graph DB</span>
+              <span>Trino</span>
+              <span>Distributed Datasets</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+          <div class="project-image-banner banner-4">
+            <div class="project-category-badge">MLOps &amp; Intelligent Automation</div>
+            <div class="project-icon-large"><i class="fa-solid fa-diagram-precedence"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3 class="project-title">ITSM Automated Ticket Classifier &amp; Drift Detection</h3>
+              <div class="project-links">
+                <span class="badge-internal"><i class="fa-solid fa-lock"></i> Enterprise HPE Core</span>
+              </div>
+            </div>
+            <p class="project-description">
+              Automated hierarchical ML classification system built with XGBoost categorizing 500K+ records across 30+ service classes. Features production automated retraining DAGs and data drift monitoring, completely eliminating manual incident triage overhead for cloud platform operations.
+            </p>
+            <div class="project-highlights">
+              <div><i class="fa-solid fa-check text-green"></i> <strong>High-Volume Scale:</strong> 500K+ historical records classified across 30+ taxonomies</div>
+              <div><i class="fa-solid fa-check text-green"></i> <strong>Continuous MLOps:</strong> Automated drift detection with automated retrain DAGs</div>
+            </div>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>XGBoost</span>
+              <span>Scikit-Learn</span>
+              <span>MLOps</span>
+              <span>Data Drift Detection</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Honors Section -->
+  <section class="section section-alt" id="education">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-award"></i> Academic Excellence</span>
+        <h2 class="section-title">Education &amp; Honors</h2>
+      </div>
+
+      <div class="education-grid">
+        <div class="education-card">
+          <div class="education-icon-box">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="education-details">
+            <div class="edu-top">
+              <div>
+                <h3 class="edu-degree">Bachelor of Engineering (BE) in Information Science &amp; Engineering</h3>
+                <h4 class="edu-inst">JSS Science and Technology University</h4>
+              </div>
+              <span class="badge-time">Graduated June 2024</span>
+            </div>
+
+            <div class="edu-honors">
+              <div class="honor-item">
+                <i class="fa-solid fa-trophy text-yellow"></i>
+                <span><strong>GPA: 9.60 / 10.0</strong> — Ranked <strong>Top 3</strong> in Department</span>
+              </div>
+              <div class="honor-item">
+                <i class="fa-solid fa-medal text-blue"></i>
+                <span>Departmental Academic Distinction Award</span>
+              </div>
+            </div>
+
+            <div class="edu-coursework">
+              <strong>Core Foundations:</strong> Distributed Systems, Operating Systems, Computer Networks, Database Management Systems (DBMS), Data Structures &amp; Algorithms, Object-Oriented Analysis &amp; Design, Cloud Computing.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section (developerFolio style) -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag"><i class="fa-solid fa-paper-plane"></i> Get In Touch</span>
+        <h2 class="section-title">Reach Out to Me</h2>
+        <p class="section-subtitle">
+          Discuss a high-scale engineering opportunity, collaborate on open source, or just say hello. My inbox is always open!
+        </p>
+      </div>
+
+      <div class="contact-wrapper">
+        <!-- Contact Info Card -->
+        <div class="contact-info-card">
+          <h3 class="contact-heading">Let's Connect</h3>
+          <p class="contact-intro">
+            Currently based in <strong>Bangalore, India</strong>, with immediate relocation flexibility for senior/growth opportunities.
+          </p>
+
+          <div class="contact-items">
+            <!-- Email -->
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">Email</span>
+                <a href="mailto:nithinpathikonda360@gmail.com" class="contact-value" id="emailText">nithinpathikonda360@gmail.com</a>
+              </div>
+              <button class="copy-btn" id="copyEmailBtn" title="Copy Email">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Location -->
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">Location</span>
+                <span class="contact-value">Bangalore, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-socials">
+            <a href="https://github.com/NithinPathikonda" target="_blank" rel="noopener" class="social-circle" title="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/nithin-pathikonda" target="_blank" rel="noopener" class="social-circle" title="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:nithinpathikonda360@gmail.com" class="social-circle" title="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive Quick Message Form -->
+        <div class="contact-form-card">
+          <h3 class="contact-heading">Send a Quick Message</h3>
+          <form id="quickContactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="senderName">Your Name</label>
+              <input type="text" id="senderName" class="form-input" placeholder="e.g. Alex Johnson" required>
+            </div>
+            <div class="form-group">
+              <label for="senderEmail">Your Email</label>
+              <input type="email" id="senderEmail" class="form-input" placeholder="e.g. alex@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="senderSubject">Subject</label>
+              <input type="text" id="senderSubject" class="form-input" placeholder="e.g. Software Engineer Opportunity / Project Inquiry" required>
+            </div>
+            <div class="form-group">
+              <label for="senderMessage">Message</label>
+              <textarea id="senderMessage" class="form-input" rows="4" placeholder="Hello Nithin, I'd like to discuss..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+          <div id="formSuccessToast" class="toast-notification">Message drafted! Opening your email client...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span><span class="logo-text">Nithin Pathikonda</span><span class="logo-slash"> /</span><span class="logo-bracket">&gt;</span>
+      </div>
+      <p class="footer-copy">
+        Crafted with <i class="fa-solid fa-heart text-red"></i> by Nithin Pathikonda • Inspired by developerFolio &amp; modern design principles
+      </p>
+      <div class="footer-back-to-top">
+        <a href="#home" class="back-to-top-btn" title="Back to top">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
+
