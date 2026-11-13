@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What Are Embeddings? The Fruit Map Guide to Vector Coordinates | Nithin Pathikonda</title>
+  <meta name="description" content="A first-principles, intuitive guide to understanding vector embeddings in Artificial Intelligence, from 2D coordinates to high-dimensional semantic spaces.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">
+        <span class="logo-bracket">&lt;</span><span class="logo-text">Nithin</span><span class="logo-slash"> /</span><span class="logo-bracket">&gt;</span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="../index.html#home" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="../index.html#projects" class="nav-link"><i class="fa-solid fa-laptop-code"></i> Projects</a>
+        <a href="../index.html#blogs" class="nav-link active"><i class="fa-solid fa-pen-nib"></i> Blogs</a>
+        <a href="https://github.com/NithinPathikonda/ai-mlops-vault" target="_blank" rel="noopener" class="nav-link"><i class="fa-solid fa-vault"></i> AI &amp; MLOps Vault</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+          <i class="fa-solid fa-moon moon-icon"></i>
+          <i class="fa-solid fa-sun sun-icon"></i>
+        </button>
+
+        <a href="../index.html#blogs" class="btn btn-outline btn-sm nav-cta">
+          <i class="fa-solid fa-arrow-left"></i> Back to Blogs
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Container -->
+  <main class="container" style="padding-top: 100px; padding-bottom: 80px;">
+    <article class="article-body">
+      
+      <!-- Article Header -->
+      <div style="margin-bottom: 36px; text-align: left;">
+        <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+          <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background: rgba(59,130,246,0.15); color: var(--primary-accent); padding: 4px 10px; border-radius: var(--border-radius-full);">AI Foundations</span>
+          <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background: rgba(139,92,246,0.15); color: var(--secondary-accent); padding: 4px 10px; border-radius: var(--border-radius-full);">Teacher's Guide</span>
+        </div>
+        <h1 style="font-size: 2.3rem; font-weight: 800; line-height: 1.25; margin-bottom: 16px; color: var(--text-primary);">
+          What Are Embeddings? The Fruit Map Guide to Vector Coordinates
+        </h1>
+        <div class="blog-meta" style="font-size: 0.88rem; margin-bottom: 24px;">
+          <span><i class="fa-solid fa-user-pen"></i> By <strong>Nithin Pathikonda</strong></span>
+          <span>•</span>
+          <span><i class="fa-regular fa-calendar"></i> November 2026</span>
+          <span>•</span>
+          <span><i class="fa-regular fa-clock"></i> 5 min read</span>
+        </div>
+      </div>
+
+      <div class="article-callout">
+        <p style="margin: 0; font-size: 1.05rem; font-weight: 500; color: var(--text-primary);">
+          <strong>The Core Idea:</strong> Computers cannot understand words, ideas, or feelings. They only understand numbers and mathematical formulas. 
+          <strong>An embedding is simply a GPS coordinate for meaning.</strong> It translates human concepts into numbers so that things with similar meanings end up close together.
+        </p>
+      </div>
+
+      <h2>🧒 Level 1: The 5-Year-Old Analogy (The Fruit Map)</h2>
+      <p>
+        Imagine a huge grid map laid out on the floor:
+      </p>
+      <ul>
+        <li>The <strong>horizontal axis (X)</strong> measures <strong>Sweetness</strong> (from 0 to 10).</li>
+        <li>The <strong>vertical axis (Y)</strong> measures <strong>Size</strong> (from 0 to 10).</li>
+      </ul>
+      <p>
+        Now, let's place objects on this map based on their properties:
+      </p>
+      <ul>
+        <li><strong>Watermelon:</strong> High sweetness (8), Big size (9) &rarr; Coordinates: <code>[8, 9]</code></li>
+        <li><strong>Cantaloupe:</strong> High sweetness (7), Big size (8) &rarr; Coordinates: <code>[7, 8]</code></li>
+        <li><strong>Lemon:</strong> Low sweetness (1), Small size (2) &rarr; Coordinates: <code>[1, 2]</code></li>
+        <li><strong>Lime:</strong> Low sweetness (1), Small size (2) &rarr; Coordinates: <code>[1, 2]</code></li>
+        <li><strong>Sports Car:</strong> Zero sweetness (0), Huge size (10) &rarr; Coordinates: <code>[0, 10]</code></li>
+      </ul>
+
+      <p>
+        Notice what naturally happened purely through geometry:
+      </p>
+      <ol>
+        <li><strong>Watermelon and Cantaloupe</strong> end up right next to each other on the map because they share similar fruit properties.</li>
+        <li><strong>Lemon and Lime</strong> are practically touching each other.</li>
+        <li><strong>The Sports Car</strong> is miles away from all the fruits.</li>
+      </ol>
+      <p>
+        Those coordinate numbers <code>[8, 9]</code> and <code>[1, 2]</code> are <strong>Embeddings</strong>!
+      </p>
+
+      <h2>📐 Level 2: Modern AI Embeddings (768 &amp; 1,536 Dimensions)</h2>
+      <p>
+        In real-world Large Language Models (like OpenAI's <code>text-embedding-3-small</code> or Google's Gemini embeddings), 
+        instead of just 2 axes (<em>Sweetness</em> and <em>Size</em>), models use <strong>768 or 1,536 dimensions</strong>!
+      </p>
+      <p>
+        Each dimension captures a subtle nuance of human meaning:
+      </p>
+      <ul>
+        <li>Is the statement formal or casual?</li>
+        <li>Is it related to software engineering, medicine, or cooking?</li>
+        <li>Is it expressing anger, joy, or curiosity?</li>
+        <li>Does the subject refer to an animal, a machine, or an abstract concept?</li>
+      </ul>
+      <p>
+        When you feed <em>"The puppy chased the ball"</em> into an embedding model, it outputs a list of 1,536 numbers:
+      </p>
+      <div class="code-container">
+[ 0.0142, -0.0431, 0.0892, 0.1201, -0.0053, ... 1,536 numbers ]
+      </div>
+      <p>
+        If you also embed <em>"The dog ran after the toy"</em>, its 1,536 numbers will be <strong>almost identical</strong>, even though <strong>not a single word is the same</strong>!
+      </p>
+
+      <h2>🔍 Level 3: How Do Computers Compare Them? (Cosine Similarity)</h2>
+      <p>
+        How does a computer decide if two embeddings match? It calculates the <strong>angle</strong> between their coordinate arrows (Vectors). This is called <strong>Cosine Similarity</strong>.
+      </p>
+      <ul>
+        <li><strong>Similarity = 1.0 (100% Match):</strong> Vectors point in the exact same direction.</li>
+        <li><strong>Similarity = 0.0:</strong> Completely unrelated concepts (perpendicular).</li>
+        <li><strong>Similarity = -1.0:</strong> Exact opposite meanings.</li>
+      </ul>
+
+      <h2>🏢 Level 4: Why Companies Use Embeddings in Production</h2>
+      <p>
+        Whenever you see embeddings used in enterprise applications, they almost always power one of three critical systems:
+      </p>
+      <ol>
+        <li>
+          <strong>Semantic Search &amp; RAG (Retrieval-Augmented Generation):</strong><br>
+          Traditional keyword search fails when a customer searches for <em>"How do I fix my phone display?"</em> and the help documentation says <em>"Repairing smartphone screen"</em>. 
+          Embeddings allow search engines to match by <strong>meaning</strong>, finding the exact documentation paragraph to feed to an LLM.
+        </li>
+        <li>
+          <strong>Vector Databases (ChromaDB, Pinecone, Qdrant):</strong><br>
+          Storing millions of vectors and finding the nearest neighbors in sub-10 milliseconds.
+        </li>
+        <li>
+          <strong>Clustering &amp; Anomaly Detection:</strong><br>
+          Automatically grouping thousands of customer support tickets or identifying weird, anomalous server logs.
+        </li>
+      </ol>
+
+      <h2>💻 Level 5: Zero-Dependency Python Demo</h2>
+      <p>
+        Here is a 20-line pure Python demonstration of embeddings and cosine similarity with zero external libraries:
+      </p>
+
+      <div class="code-container">
+<pre style="margin: 0; color: #e2e8f0;"><code>import math
+
+def cosine_similarity(v1, v2):
+    dot_product = sum(a * b for a, b in zip(v1, v2))
+    mag1 = math.sqrt(sum(a * a for a in v1))
+    mag2 = math.sqrt(sum(b * b for b in v2))
+    return dot_product / (mag1 * mag2)
+
+# Simulated 3D coordinates: [Is_Pet, Is_Feline, Is_Vehicle]
+cat   = [0.92, 0.98, 0.00]
+tiger = [0.10, 0.99, 0.00]
+car   = [0.00, 0.00, 0.95]
+
+print("Cat vs Tiger (Both felines):", cosine_similarity(cat, tiger)) # ~0.72 (High)
+print("Cat vs Sports Car (Unrelated):", cosine_similarity(cat, car))   # 0.00  (Zero)</code></pre>
+      </div>
+
+      <div class="article-callout" style="border-left-color: var(--secondary-accent);">
+        <h4>💡 The Teacher's Takeaway</h4>
+        <p style="margin-bottom: 0;">
+          Next time someone mentions embeddings, don't get lost in mathematical intimidation. Remember: <strong>it's just a map. Words are pins on that map, and similar ideas sit on the same street.</strong>
+        </p>
+      </div>
+
+      <!-- Footer navigation -->
+      <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <a href="../index.html#blogs" class="btn btn-outline btn-sm">
+          <i class="fa-solid fa-arrow-left"></i> Back to All Blogs
+        </a>
+        <a href="https://github.com/NithinPathikonda/ai-mlops-vault" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          <i class="fa-brands fa-github"></i> Star the AI &amp; MLOps Vault
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Script for Theme Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('themeToggle');
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      root.setAttribute('data-theme', savedTheme);
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const activeTheme = root.getAttribute('data-theme');
+          const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
