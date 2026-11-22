@@ -504,7 +504,7 @@
 
       <div class="projects-grid">
         <!-- Project 1: Kanso (簡素) -->
-        <div class="project-card">
+        <div class="project-card" id="kanso-showcase">
           <div class="project-image-banner banner-kanso" onclick="openKansoModal()" style="cursor: pointer;" title="Click to view interactive UI/UX preview">
             <div class="project-category-badge">Mobile Product &amp; Behavioral Design</div>
             <img src="assets/kanso/routines.png" alt="Kanso iPhone Preview" class="banner-phone-preview">
@@ -981,7 +981,28 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=1.2"></script>
+  <script>
+    function triggerKansoShowcaseFromUrl() {
+      var hash = (window.location.hash || '').toLowerCase();
+      var search = (window.location.search || '').toLowerCase();
+      if (hash.indexOf('kanso') !== -1 || search.indexOf('kanso') !== -1) {
+        if (typeof openKansoModal === 'function') {
+          openKansoModal();
+        } else {
+          var modal = document.getElementById('kansoModal');
+          if (modal) {
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          }
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', triggerKansoShowcaseFromUrl);
+    window.addEventListener('load', triggerKansoShowcaseFromUrl);
+    window.addEventListener('hashchange', triggerKansoShowcaseFromUrl);
+    setTimeout(triggerKansoShowcaseFromUrl, 100);
+  </script>
 </body>
 </html>
 
