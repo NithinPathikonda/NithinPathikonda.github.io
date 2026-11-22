@@ -258,8 +258,13 @@ function openKansoModal() {
   const modal = document.getElementById('kansoModal');
   if (modal) {
     modal.classList.add('open');
+    modal.style.display = 'flex';
+    modal.style.opacity = '1';
+    modal.style.pointerEvents = 'auto';
     document.body.style.overflow = 'hidden';
-    switchKansoSlide(0);
+    if (typeof switchKansoSlide === 'function') {
+      switchKansoSlide(0);
+    }
     if (window.location.hash !== '#kanso-showcase') {
       window.history.replaceState(null, '', '#kanso-showcase');
     }
@@ -270,8 +275,11 @@ function closeKansoModal() {
   const modal = document.getElementById('kansoModal');
   if (modal) {
     modal.classList.remove('open');
+    modal.style.display = 'none';
+    modal.style.opacity = '0';
+    modal.style.pointerEvents = 'none';
     document.body.style.overflow = '';
-    if (window.location.hash === '#kanso-showcase') {
+    if (window.location.hash === '#kanso-showcase' || window.location.hash === '#kanso') {
       window.history.replaceState(null, '', '#projects');
     }
   }
@@ -288,7 +296,7 @@ function checkUrlForKanso() {
 }
 
 function handleKansoModalBackdrop(event) {
-  if (event.target.id === 'kansoModal') {
+  if (event && event.target && event.target.id === 'kansoModal') {
     closeKansoModal();
   }
 }
