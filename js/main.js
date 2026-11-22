@@ -18,7 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 5. Copy Email to Clipboard
   initCopyEmail();
+
+  // 6. Check URL for direct deep-link to Kanso Showcase
+  checkUrlForKanso();
 });
+
+window.addEventListener('hashchange', checkUrlForKanso);
 
 /* --------------------------------------------------------------------------
    THEME TOGGLE
@@ -255,6 +260,9 @@ function openKansoModal() {
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
     switchKansoSlide(0);
+    if (window.location.hash !== '#kanso-showcase') {
+      window.history.replaceState(null, '', '#kanso-showcase');
+    }
   }
 }
 
@@ -263,6 +271,19 @@ function closeKansoModal() {
   if (modal) {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    if (window.location.hash === '#kanso-showcase') {
+      window.history.replaceState(null, '', '#projects');
+    }
+  }
+}
+
+function checkUrlForKanso() {
+  const hash = window.location.hash.toLowerCase();
+  const search = window.location.search.toLowerCase();
+  if (hash === '#kanso-showcase' || hash === '#kanso' || search.includes('kanso')) {
+    setTimeout(() => {
+      openKansoModal();
+    }, 300);
   }
 }
 
