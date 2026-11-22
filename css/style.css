@@ -988,6 +988,7 @@ ul {
 .banner-2 { background: linear-gradient(135deg, #4c1d95 0%, #8b5cf6 100%); }
 .banner-3 { background: linear-gradient(135deg, #065f46 0%, #10b981 100%); }
 .banner-4 { background: linear-gradient(135deg, #831843 0%, #f43f5e 100%); }
+.banner-kanso { background: linear-gradient(135deg, #09090b 0%, #18181b 50%, #000000 100%); border-bottom: 1px solid rgba(255, 255, 255, 0.12); }
 
 .project-category-badge {
   position: absolute;
