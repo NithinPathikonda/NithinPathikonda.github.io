@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1c1c21"/>
+      <stop offset="50%" stop-color="#101014"/>
+      <stop offset="100%" stop-color="#050507"/>
+    </linearGradient>
+    <linearGradient id="npText" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E4E4E7"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Rounded Squircle with subtle rim -->
+  <rect width="64" height="64" rx="15" fill="url(#bgGrad)"/>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+  
+  <!-- Sleek NP Monogram -->
+  <text x="31" y="43" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="url(#npText)" text-anchor="middle" letter-spacing="-1.5">NP</text>
+  
+  <!-- Subtle Emerald Active Indicator -->
+  <circle cx="51" cy="14" r="3.5" fill="#10B981"/>
+</svg>
