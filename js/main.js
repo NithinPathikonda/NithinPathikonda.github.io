@@ -197,3 +197,117 @@ function handleFormSubmit(event) {
   window.location.href = mailtoLink;
 }
 
+/* --------------------------------------------------------------------------
+   KANSO UI/UX SHOWCASE MODAL CONTROLLER
+   -------------------------------------------------------------------------- */
+const kansoSlides = [
+  {
+    img: 'assets/kanso/routines.png',
+    badge: 'Kyoto Zen Habit Cards',
+    title: 'Frictionless Daily Check-in & Golden Resets',
+    desc: 'Eliminates streak shame using James Clear\'s "Never Miss Twice" psychology. Features 2-minute golden reset cards with Stoic & Zen wisdom to instantly reignite flow after an off day.',
+    bullets: [
+      'Pure #000000 OLED black theme turning pixels physically off and saving battery',
+      '1.2px hairline borders with native iOS CoreHaptics tactile feedback',
+      'Dynamic weekly momentum strip anchored to current date with real-time status'
+    ]
+  },
+  {
+    img: 'assets/kanso/matrix.png',
+    badge: 'Never Miss Twice Calendar',
+    title: '4×4 Visual Momentum Grid & Recovery States',
+    desc: 'A glanceable, psychological adherence grid replacing arbitrary streak counters. Distinct visual indicators distinguish normal flow, 1-day pause, 2-day recovery, and critical delay warnings.',
+    bullets: [
+      'Four distinct color states: All Done (White), Partial, 1-Day Pause (Yellow), 2d Reset',
+      'Early warning detection: Dotted ring (3d Warning) & Solid ring (4d+ Critical)',
+      'Sub-segmented filtering: Switch between Month, Year Matrix, and Individual Routines'
+    ]
+  },
+  {
+    img: 'assets/kanso/analytics.png',
+    badge: 'Stock-Style Velocity Engine',
+    title: 'Composite Habit Index & Bullish Momentum',
+    desc: 'Visualizes habit formation as an investment portfolio. Stock-market trendline charts show whether your daily consistency is trending bullish, stabilizing, or facing resistance.',
+    bullets: [
+      'Smooth SVG Bézier curve with animated glowing momentum gradient',
+      'Peak, Dip, and Average velocity metrics calculated over 1W, 1M, and 1Y horizons',
+      'Zero external charting libraries; lightweight custom SVG math rendered via Hermes'
+    ]
+  },
+  {
+    img: 'assets/kanso/widgets.png',
+    badge: 'iOS Widget Studio',
+    title: 'Glanceable Native iOS Home Screen Widgets',
+    desc: 'Designed for iOS home launchers in Medium (4×2), Small (2×2 Spotlight), and Large (4×4 Matrix) form factors, keeping habits top-of-mind without opening the app.',
+    bullets: [
+      'Medium 4×2: Top priority routines with one-tap completion status',
+      'Small 2×2 Spotlight: Habit spotlight with 7-day past rhythm dots',
+      'Large 4×4 Matrix: Full monthly Never Miss Twice matrix on your iPhone home screen'
+    ]
+  }
+];
+
+let currentKansoIndex = 0;
+
+function openKansoModal() {
+  const modal = document.getElementById('kansoModal');
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    switchKansoSlide(0);
+  }
+}
+
+function closeKansoModal() {
+  const modal = document.getElementById('kansoModal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+function handleKansoModalBackdrop(event) {
+  if (event.target.id === 'kansoModal') {
+    closeKansoModal();
+  }
+}
+
+function switchKansoSlide(index) {
+  currentKansoIndex = index;
+  const slide = kansoSlides[index];
+  if (!slide) return;
+
+  const img = document.getElementById('kansoSlideImg');
+  const badge = document.getElementById('kansoSlideBadge');
+  const title = document.getElementById('kansoSlideTitle');
+  const desc = document.getElementById('kansoSlideDesc');
+  const bullets = document.getElementById('kansoSlideBullets');
+
+  if (img) img.src = slide.img;
+  if (badge) badge.textContent = slide.badge;
+  if (title) title.textContent = slide.title;
+  if (desc) desc.textContent = slide.desc;
+  if (bullets) {
+    bullets.innerHTML = slide.bullets
+      .map(b => `<li><i class="fa-solid fa-circle-check"></i> ${b}</li>`)
+      .join('');
+  }
+
+  for (let i = 0; i < 4; i++) {
+    const tab = document.getElementById(`kansoTab${i}`);
+    if (tab) {
+      if (i === index) {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
+      }
+    }
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeKansoModal();
+  }
+});
+

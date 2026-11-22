@@ -505,17 +505,19 @@
       <div class="projects-grid">
         <!-- Project 1: Kanso (簡素) -->
         <div class="project-card">
-          <div class="project-image-banner banner-kanso">
+          <div class="project-image-banner banner-kanso" onclick="openKansoModal()" style="cursor: pointer;" title="Click to view interactive UI/UX preview">
             <div class="project-category-badge">Mobile Product &amp; Behavioral Design</div>
-            <div class="project-icon-large"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <img src="assets/kanso/routines.png" alt="Kanso iPhone Preview" class="banner-phone-preview">
+            <div class="kanso-banner-pill"><i class="fa-solid fa-expand"></i> Explore UI/UX</div>
           </div>
           <div class="project-content">
             <div class="project-header">
               <h3 class="project-title">Kanso (簡素) – Minimalist iOS Habit Tracker &amp; Matrix Engine</h3>
               <div class="project-links">
-                <a href="https://github.com/NithinPathikonda/kanso" target="_blank" rel="noopener" class="icon-link" title="Source Code">
-                  <i class="fa-brands fa-github"></i>
-                </a>
+                <span class="badge-internal"><i class="fa-solid fa-lock"></i> Proprietary iOS App</span>
+                <button type="button" class="btn-preview-link" onclick="openKansoModal()" title="View UI/UX Screenshots">
+                  <i class="fa-solid fa-mobile-screen"></i> UI/UX Showcase
+                </button>
               </div>
             </div>
             <p class="project-description">
@@ -909,6 +911,57 @@
       </div>
     </div>
   </section>
+
+  <!-- Kanso UI/UX Showcase Lightbox Modal -->
+  <div id="kansoModal" class="kanso-modal" onclick="handleKansoModalBackdrop(event)" role="dialog" aria-modal="true" aria-label="Kanso UI UX Showcase">
+    <div class="kanso-modal-dialog">
+      <div class="kanso-modal-header">
+        <div class="kanso-modal-title-box">
+          <span class="kanso-kanji">簡素</span>
+          <div>
+            <h3 class="kanso-modal-title">Kanso (簡素) — iOS UI &amp; UX System</h3>
+            <p class="kanso-modal-subtitle">Kyoto Zen Minimalist Habit Tracker • Physical Super Retina OLED</p>
+          </div>
+        </div>
+        <button class="kanso-modal-close" onclick="closeKansoModal()" title="Close (Esc)">&times;</button>
+      </div>
+
+      <!-- Segment Tabs -->
+      <div class="kanso-tab-bar">
+        <button class="kanso-tab active" id="kansoTab0" onclick="switchKansoSlide(0)">
+          <i class="fa-solid fa-check-circle"></i> 1. Routines
+        </button>
+        <button class="kanso-tab" id="kansoTab1" onclick="switchKansoSlide(1)">
+          <i class="fa-solid fa-calendar-days"></i> 2. 4×4 Matrix
+        </button>
+        <button class="kanso-tab" id="kansoTab2" onclick="switchKansoSlide(2)">
+          <i class="fa-solid fa-chart-line"></i> 3. Analytics
+        </button>
+        <button class="kanso-tab" id="kansoTab3" onclick="switchKansoSlide(3)">
+          <i class="fa-solid fa-table-cells-large"></i> 4. Widgets
+        </button>
+      </div>
+
+      <!-- Device Display Stage -->
+      <div class="kanso-stage">
+        <div class="kanso-phone-frame">
+          <img id="kansoSlideImg" src="assets/kanso/routines.png" alt="Kanso iOS Screen" class="kanso-phone-screen">
+        </div>
+        <div class="kanso-caption-card">
+          <div class="kanso-caption-badge" id="kansoSlideBadge">Kyoto Zen Habit Cards</div>
+          <h4 class="kanso-caption-heading" id="kansoSlideTitle">Frictionless Daily Check-in &amp; Golden Resets</h4>
+          <p class="kanso-caption-text" id="kansoSlideDesc">
+            Eliminates streak shame using James Clear's "Never Miss Twice" rule. Features 2-minute golden reset cards with Stoic &amp; Zen wisdom to instantly reignite flow after an off day.
+          </p>
+          <ul class="kanso-caption-bullets" id="kansoSlideBullets">
+            <li><i class="fa-solid fa-circle-check"></i> Pure #000000 OLED black theme turning pixels off and saving display battery</li>
+            <li><i class="fa-solid fa-circle-check"></i> 1.2px hairline borders and native iOS CoreHaptics tactile feedback</li>
+            <li><i class="fa-solid fa-circle-check"></i> Dynamic weekly momentum strip anchored to current date</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer">

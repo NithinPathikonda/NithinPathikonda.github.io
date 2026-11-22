@@ -1715,3 +1715,304 @@ ul {
   }
 }
 
+/* --------------------------------------------------------------------------
+   KANSO UI/UX SHOWCASE & LIGHTBOX MODAL
+   -------------------------------------------------------------------------- */
+.banner-kanso {
+  background: linear-gradient(135deg, #09090b 0%, #141416 50%, #000000 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  height: 220px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.banner-kanso:hover .banner-phone-preview {
+  transform: translateY(-8px) scale(1.03);
+}
+
+.banner-phone-preview {
+  width: 140px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 25px;
+}
+
+.kanso-banner-pill {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  color: #f4f4f5;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-preview-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-preview-link:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Modal Overlay */
+.kanso-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10000;
+  overflow-y: auto;
+  padding: 24px 16px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.kanso-modal.open {
+  display: flex;
+  opacity: 1;
+}
+
+.kanso-modal-dialog {
+  background: #0a0a0c;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 960px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+  padding: 28px;
+  position: relative;
+  animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #f4f4f5;
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.94); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.kanso-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 16px;
+}
+
+.kanso-modal-title-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.kanso-kanji {
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.kanso-modal-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.kanso-modal-subtitle {
+  font-size: 0.85rem;
+  color: #a1a1aa;
+  margin: 3px 0 0 0;
+}
+
+.kanso-modal-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.kanso-modal-close:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Tab Bar */
+.kanso-tab-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.kanso-tab {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.kanso-tab:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.kanso-tab.active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.15);
+}
+
+/* Stage Layout */
+.kanso-stage {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.kanso-phone-frame {
+  background: #000000;
+  border: 3px solid #27272a;
+  border-radius: 36px;
+  padding: 6px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.kanso-phone-screen {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  display: block;
+}
+
+.kanso-caption-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.kanso-caption-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.kanso-caption-heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #ffffff;
+}
+
+.kanso-caption-text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #d4d4d8;
+  margin-bottom: 16px;
+}
+
+.kanso-caption-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.kanso-caption-bullets li {
+  font-size: 0.88rem;
+  color: #a1a1aa;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.45;
+}
+
+.kanso-caption-bullets li i {
+  color: #10b981;
+  margin-top: 3px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .kanso-stage {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .kanso-phone-frame {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
