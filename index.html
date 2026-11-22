@@ -32,7 +32,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=3.0">
+  <style>
+    .kanso-modal.open {
+      display: flex !important;
+      opacity: 1 !important;
+    }
+  </style>
 </head>
 <body>
 
@@ -981,19 +987,23 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js?v=1.2"></script>
+  <script src="js/main.js?v=3.0"></script>
   <script>
     function triggerKansoShowcaseFromUrl() {
       var hash = (window.location.hash || '').toLowerCase();
       var search = (window.location.search || '').toLowerCase();
       if (hash.indexOf('kanso') !== -1 || search.indexOf('kanso') !== -1) {
-        if (typeof openKansoModal === 'function') {
-          openKansoModal();
-        } else {
-          var modal = document.getElementById('kansoModal');
-          if (modal) {
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
+        var card = document.getElementById('kanso-showcase') || document.getElementById('projects');
+        if (card) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        var modal = document.getElementById('kansoModal');
+        if (modal) {
+          modal.style.display = 'flex';
+          modal.style.opacity = '1';
+          document.body.style.overflow = 'hidden';
+          if (typeof switchKansoSlide === 'function') {
+            switchKansoSlide(0);
           }
         }
       }
@@ -1002,6 +1012,7 @@
     window.addEventListener('load', triggerKansoShowcaseFromUrl);
     window.addEventListener('hashchange', triggerKansoShowcaseFromUrl);
     setTimeout(triggerKansoShowcaseFromUrl, 100);
+    setTimeout(triggerKansoShowcaseFromUrl, 500);
   </script>
 </body>
 </html>
