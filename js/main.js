@@ -286,12 +286,13 @@ function closeKansoModal() {
 }
 
 function checkUrlForKanso() {
+  const url = window.location.href.toLowerCase();
   const hash = window.location.hash.toLowerCase();
   const search = window.location.search.toLowerCase();
-  if (hash === '#kanso-showcase' || hash === '#kanso' || search.includes('kanso')) {
+  if (hash === '#kanso-showcase' || hash === '#kanso' || search.includes('kanso') || url.includes('kanso')) {
     setTimeout(() => {
       openKansoModal();
-    }, 300);
+    }, 150);
   }
 }
 

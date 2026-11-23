@@ -1036,9 +1036,10 @@
     }
 
     function triggerKansoShowcaseFromUrl() {
+      var url = (window.location.href || '').toLowerCase();
       var hash = (window.location.hash || '').toLowerCase();
       var search = (window.location.search || '').toLowerCase();
-      if (hash.indexOf('kanso') !== -1 || search.indexOf('kanso') !== -1) {
+      if (hash.indexOf('kanso') !== -1 || search.indexOf('kanso') !== -1 || url.indexOf('kanso') !== -1) {
         var card = document.getElementById('kanso-showcase') || document.getElementById('projects');
         if (card) {
           card.scrollIntoView({ behavior: 'smooth', block: 'start' });
