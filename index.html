@@ -1009,7 +1009,9 @@
         if (typeof switchKansoSlide === 'function') {
           switchKansoSlide(0);
         }
-        if (window.location.hash !== '#kanso-showcase') {
+        if (window.location.search && window.location.search.indexOf('kanso') !== -1) {
+          window.history.replaceState(null, '', window.location.pathname + '#kanso-showcase');
+        } else if (window.location.hash !== '#kanso-showcase') {
           window.history.replaceState(null, '', '#kanso-showcase');
         }
       }
@@ -1024,9 +1026,9 @@
         modal.style.pointerEvents = 'none';
         document.body.style.overflow = '';
       }
-      if (window.location.hash === '#kanso-showcase' || window.location.hash === '#kanso') {
-        window.history.replaceState(null, '', '#projects');
-      }
+      var currentHash = window.location.hash;
+      var cleanHash = (currentHash === '#kanso-showcase' || currentHash === '#kanso') ? '#projects' : currentHash;
+      window.history.replaceState(null, '', window.location.pathname + cleanHash);
     }
 
     function handleKansoModalBackdrop(event) {
@@ -1035,11 +1037,13 @@
       }
     }
 
+    var kansoInitialTriggered = false;
     function triggerKansoShowcaseFromUrl() {
-      var url = (window.location.href || '').toLowerCase();
+      if (kansoInitialTriggered) return;
       var hash = (window.location.hash || '').toLowerCase();
       var search = (window.location.search || '').toLowerCase();
-      if (hash.indexOf('kanso') !== -1 || search.indexOf('kanso') !== -1 || url.indexOf('kanso') !== -1) {
+      if (hash === '#kanso-showcase' || hash === '#kanso' || search.indexOf('kanso') !== -1) {
+        kansoInitialTriggered = true;
         var card = document.getElementById('kanso-showcase') || document.getElementById('projects');
         if (card) {
           card.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1052,7 +1056,7 @@
     window.addEventListener('load', triggerKansoShowcaseFromUrl);
     window.addEventListener('hashchange', function() {
       var hash = (window.location.hash || '').toLowerCase();
-      if (hash.indexOf('kanso') !== -1) {
+      if (hash === '#kanso-showcase' || hash === '#kanso') {
         openKansoModal();
       } else {
         closeKansoModal();
@@ -1063,8 +1067,13 @@
         closeKansoModal();
       }
     });
-    setTimeout(triggerKansoShowcaseFromUrl, 100);
-    setTimeout(triggerKansoShowcaseFromUrl, 500);
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          closeKansoModal();
+        });
+      });
+    });
   </script>
 </body>
 </html>

@@ -23,7 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
   checkUrlForKanso();
 });
 
-window.addEventListener('hashchange', checkUrlForKanso);
+window.addEventListener('hashchange', () => {
+  const hash = (window.location.hash || '').toLowerCase();
+  if (hash === '#kanso-showcase' || hash === '#kanso') {
+    openKansoModal();
+  } else {
+    closeKansoModal();
+  }
+});
 
 /* --------------------------------------------------------------------------
    THEME TOGGLE
@@ -265,7 +272,9 @@ function openKansoModal() {
     if (typeof switchKansoSlide === 'function') {
       switchKansoSlide(0);
     }
-    if (window.location.hash !== '#kanso-showcase') {
+    if (window.location.search && window.location.search.includes('kanso')) {
+      window.history.replaceState(null, '', window.location.pathname + '#kanso-showcase');
+    } else if (window.location.hash !== '#kanso-showcase') {
       window.history.replaceState(null, '', '#kanso-showcase');
     }
   }
@@ -279,17 +288,19 @@ function closeKansoModal() {
     modal.style.opacity = '0';
     modal.style.pointerEvents = 'none';
     document.body.style.overflow = '';
-    if (window.location.hash === '#kanso-showcase' || window.location.hash === '#kanso') {
-      window.history.replaceState(null, '', '#projects');
-    }
   }
+  const currentHash = window.location.hash;
+  const cleanHash = (currentHash === '#kanso-showcase' || currentHash === '#kanso') ? '#projects' : currentHash;
+  window.history.replaceState(null, '', window.location.pathname + cleanHash);
 }
 
+let kansoInitialChecked = false;
 function checkUrlForKanso() {
-  const url = window.location.href.toLowerCase();
+  if (kansoInitialChecked) return;
   const hash = window.location.hash.toLowerCase();
   const search = window.location.search.toLowerCase();
-  if (hash === '#kanso-showcase' || hash === '#kanso' || search.includes('kanso') || url.includes('kanso')) {
+  if (hash === '#kanso-showcase' || hash === '#kanso' || search.includes('kanso')) {
+    kansoInitialChecked = true;
     setTimeout(() => {
       openKansoModal();
     }, 150);
